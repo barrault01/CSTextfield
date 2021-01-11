@@ -4,9 +4,9 @@ public class SAKTextfield: UITextField {
 
     public var allowCharacters: CharacterSet = CharacterSet().inverted
     public var maxCharacterNumber: Int?
-    var updatedText: ((String?) -> Void)?
-    var externalDelegate: UITextFieldDelegate?
-    var maskString: String?
+    public var updatedText: ((String?) -> Void)?
+    public var externalDelegate: UITextFieldDelegate?
+    public var maskString: String?
 
     public func unmaskedString() -> String? {
         guard let mask = maskString else {
