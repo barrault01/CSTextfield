@@ -8,6 +8,14 @@ public class SAKTextfield: UITextField {
     public var externalDelegate: UITextFieldDelegate?
     public var maskString: String?
 
+    public func setDefault(text defaultValue: String) {
+        if let maskString = maskString {
+            self.text = defaultValue.apply(mask: maskString)
+        } else {
+            self.text = defaultValue
+        }
+    }
+
     public func unmaskedString() -> String? {
         guard let mask = maskString else {
             return self.text

@@ -31,6 +31,13 @@ final class SAKTextfieldTests: XCTestCase {
 
     }
 
+    func testDefaultValue() {
+        let texfield = SAKTextfield()
+        texfield.maskString = "###.###.###-##"
+        texfield.setDefault(text: "12345678910")
+        XCTAssert(texfield.text == "123.456.789-10")
+    }
+
     func unMaskComparaison(_ string: String, mask: String, toCompare: String) {
         let unmasked = string.unmask(mask: mask)
         XCTAssert(unmasked == toCompare, "\(unmasked) == \(toCompare)")
