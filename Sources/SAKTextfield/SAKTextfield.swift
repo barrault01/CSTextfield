@@ -1,6 +1,6 @@
 import UIKit
 
-public class CSTextfield: UITextField {
+public class SAKTextfield: UITextField {
 
     public var allowCharacters: CharacterSet = CharacterSet().inverted
     public var maxCharacterNumber: Int?
@@ -41,7 +41,7 @@ public class CSTextfield: UITextField {
 
 }
 
-extension CSTextfield: UITextFieldDelegate {
+extension SAKTextfield: UITextFieldDelegate {
 
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         self.externalDelegate?.textFieldDidBeginEditing?(textField)

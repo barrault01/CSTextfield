@@ -1,7 +1,7 @@
 import XCTest
-@testable import CSTextfield
+@testable import SAKTextfield
 
-final class CSTextfieldTests: XCTestCase {
+final class SAKTextfieldTests: XCTestCase {
 
     func testUnmask() {
         unMaskComparaison("(1", mask: "(#", toCompare: "1")

@@ -1,7 +1,7 @@
 import XCTest
 
-import CSTextfieldTests
+import SAKTextfieldTests
 
 var tests = [XCTestCaseEntry]()
-tests += CSTextfieldTests.allTests()
+tests += SAKTextfieldTests.allTests()
 XCTMain(tests)
