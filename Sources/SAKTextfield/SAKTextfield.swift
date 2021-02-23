@@ -5,6 +5,8 @@ public class SAKTextfield: UITextField {
     public var allowCharacters: CharacterSet = CharacterSet().inverted
     public var maxCharacterNumber: Int?
     public var updatedText: ((String?) -> Void)?
+    public var formatValue: ((String?) -> String?)?
+    public var unformatValue: ((String?) -> String?)?
     public var externalDelegate: UITextFieldDelegate?
     public var maskString: String?
 
@@ -39,12 +41,15 @@ public class SAKTextfield: UITextField {
     }
 
     @objc func editingChange() {
-        guard let mask = self.maskString else {
+        if let mask = self.maskString {
+            self.text = self.text?.unmask(mask: mask).apply(mask: mask)
+            self.updatedText?(self.text?.unmask(mask: mask))
+        } else if let formatValue = self.formatValue {
+            self.text = formatValue(self.text)
+            self.updatedText?(unformatValue?(self.text))
+        } else {
             self.updatedText?(self.text)
-            return
         }
-        self.text = self.text?.unmask(mask: mask).apply(mask: mask)
-        self.updatedText?(self.text?.unmask(mask: mask))
     }
 
 }
